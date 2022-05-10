@@ -1,0 +1,44 @@
+<div id="modal" class="modal">
+    <strong class="modal__title">Консультація спеціаліста</strong>
+    <ul class="modal__social">
+        <li class="modal__social-item">
+            <a href="#" class="modal__social-link" target="_blank">
+                <img src="../images/telegram.svg" alt="telegram">
+            </a>
+        </li>
+        <li class="modal__social-item">
+            <a href="#" class="modal__social-link" target="_blank">
+                <img src="../images/viber.svg" alt="viber">
+            </a>
+        </li>
+        <li class="modal__social-item">
+            <a href="#" class="modal__social-link" target="_blank">
+                <img src="../images/messenger.svg" alt="messenger">
+            </a>
+        </li>
+    </ul>
+    <form action="#" class="form modal-form" novalidate="novalidate">
+        <span class="error-form">Помилка! Перевірте правельність заповнення форми.</span>
+        <div class="form__box">
+            <label for="modal-name" class="form__label">Ваше ім'я*</label>
+            <input type="text" placeholder="" class="form__control" name="form_name"  id="modal-name" minlength="2" required="">
+        </div>
+        <div class="form__box">
+            <label for="modal-phone" class="form__label">Ваш номер телефону*</label>
+            <input type="tel" placeholder="" class="form__control" name="form_phone" id="modal-phone" minlength="10" required="" oninput="this.value = this.value.replace(/[^0-9.+]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+        </div>
+        <div class="form__box">
+            <label for="modal-email" class="form__label">Ваш e-mail*</label>
+            <input type="email" placeholder="" class="form__control" name="form_email" id="modal-email" minlength="2" required="">
+        </div>
+        <div class="btn-block-center">
+            <button  type="submit" class="btn  btn-default form__btn">відправити</button>
+        </div>
+    </form>
+    <div class="modal__phone-block">
+        <a href="tel:+38(050)4782777" class="contact__phone">
+            <img src="./images/phone-ico.svg" alt="phone-ico" width="96" height="96" loading="lazy">
+            +38 (050) 478 27 77
+        </a>
+    </div>
+</div>

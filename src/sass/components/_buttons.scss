@@ -1,0 +1,54 @@
+/* buttons */
+.btn{
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid transparent;
+	text-align: center;
+	font-weight: 900;
+	font-size: $btn-font-size;
+	line-height: $btn-line-height;
+	font-family: $font-family-base;
+	padding: 10px 38px;
+	color: $white;
+	transition: .3s;
+	&.active:focus,
+	&.active:hover,
+	&:focus,
+	&:active,
+	&:hover{
+		box-shadow: none;
+		outline: none;
+	}
+	&_lt{
+		letter-spacing: 1.2px;
+	}
+}
+.btn-default{
+	min-width: 265px;
+	background: $orange;
+	border: none;
+	outline: none;
+	color: $white;
+	text-transform: uppercase;
+	border-radius: 6px;
+	padding: 22px 32px;
+	font-size: 16px;
+	line-height: 16px;
+	&.active:focus,
+	&.active:hover,
+	&:focus,
+	&:active,
+	&:hover{
+		background: $cinnabar;
+		color:$white;
+	}
+}
+
+.btn-block-center{
+	text-align: center;
+	&_mb58{
+		margin-bottom: 58px;
+	}
+}
+/*end btn*/

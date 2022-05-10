@@ -1,0 +1,54 @@
+// vars
+$fonts: '../fonts/';
+$images: '../images/';
+
+// fonts
+$Inter:  'Inter', sans-serif;
+
+$breakpoints: (
+	phone-xs: 375px,
+	phone: 768px,
+	tablet: 992px,
+	desktop: 1200px,
+	desktop_lg: 1400px,
+);
+
+// font settings
+$grid-gutter-width: 15px;
+$container-large-desktop: 1440px;
+
+$font-family-base: $Inter;
+$font-size-base: 16px;
+$line-height-base: 1.25;
+$font-size-h1: 60px;
+$font-size-h2: 32px;
+$font-size-h3: 48px;
+$font-size-h4: 24px;
+$font-size-h5: 32px;
+
+$paragraph-spacing: 0 0 15px;
+
+$hover-opacity: 0.8;
+$time-animation: 0.3s;
+
+// colors
+$white: #fff;
+$lightGray: #78788F;
+$graphitImaris: #3B3B46;
+$orange: #FF5C39;
+$cinnabar: #E55233;
+$midGray: #5A5A6A;
+$Athens: #EBEBED;
+
+
+$base-color: $graphitImaris;
+$body-bg: $white;
+
+$link-color: $graphitImaris;
+
+$btn-color: $graphitImaris;
+$btn-border-radius-base: 30px;
+$btn-font-size: 13px;
+$btn-line-height: 18px;
+$btn-font-weight: 600;
+$btn-min-width: 205px;

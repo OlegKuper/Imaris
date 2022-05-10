@@ -1,0 +1,319 @@
+/* header */
+.header{
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+	text-align: center;
+	color: $white;
+	background: $white;
+	z-index: 200;
+	padding: 15px 0;
+	transition: .3s;
+	@include media("<1450px"){
+		padding: 15px 0;
+	}
+	@include media("<phone"){
+		padding: 0;
+	}
+	&.modify{
+		padding: 0;
+		.main-nav{
+			top: 56px;
+		}
+	}
+}
+.header {
+	&__wrap {
+		display: flex;
+		align-items: center;
+		position: relative;
+		background: #fff;
+		@include media("<phone"){
+			height: 56px;
+		}
+	}
+	&__btn{
+		padding: 20px 30px;
+		min-width: 240px;
+		outline: initial !important;
+		border: 0 !important;
+
+
+		@include media("<1450px"){
+			order: 2;
+		}
+		@include media("<phone"){
+			border-radius: 0px 0px 0px 6px;
+			font-size: 13px;
+			line-height: 16px;
+			min-width: 178px;
+			padding: 20px 16px;
+			position: absolute;
+			top: 0;
+			right: -2px;
+			bottom: 0;
+			height: 56px;
+
+		}
+	}
+	.container{
+		@include media("<phone"){
+			padding: 0;
+		}
+	}
+}
+.logo{
+	position: relative;
+	width: 156px;
+	height: 54px;
+	background: url('#{$images}logo.svg') no-repeat 50% 50%;
+	background-size: 100% auto;
+	overflow: hidden;
+	text-indent: -9999px;
+	margin: 0;
+	margin-right: auto;
+	@include media("<1450px"){
+		order: 2;
+		width: 125px;
+		height: 43px;
+		object-fit: cover;
+	}
+	@include media("<phone"){
+		width: 87px;
+		height: 32px;
+	}
+	&__link{
+		display: block;
+		height: 100%;
+	}
+}
+.translate{
+	@include media("<1450px"){
+		order: 2;
+	}
+	.jcf-select{
+		position: relative;
+		border: 1px solid transparent;
+		margin: 0;
+		text-align: left;
+		border-radius: 0;
+		padding: 0 5px;
+		background: rgba(255, 255, 255, 1);
+		cursor: default;
+		color: #35495d;
+		min-width: initial;
+		display: flex;
+		align-items: center;
+		margin-left: 17px;
+	}
+	.jcf-select .jcf-select-opener{
+		position: relative;
+		background: transparent;
+		width: 20px;
+		bottom: 0;
+		right: 0;
+		top: 0;
+	}
+	.jcf-select .jcf-select-opener:before{
+		content: "";
+		position: absolute;
+		top: 50%;
+		right: 50%;
+		background: url('#{$images}translate-ico.svg') no-repeat 50% 50%;
+		width: 14px;
+		height: 14px;
+		transform: translate(85%, -50%) rotate(0deg);
+		transition: all .3s ease-in-out;
+	}
+	.jcf-select.jcf-drop-active .jcf-select-opener:before{
+
+		transform: translate(50%, -50%) rotate(180deg);
+		margin: 0 0 0;
+	}
+	.jcf-select .jcf-select-text {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		cursor: default;
+		display: block;
+		font-size: 15px;
+		line-height: 18px;
+		font-weight: 900;
+		margin: 0 0 0 0;
+		width: 32px;
+		text-transform: uppercase;
+	}
+	.jcf-select-drop .jcf-select-drop-content{
+		border: 1px solid #35495d;
+	}
+	.jcf-select-drop{
+		background: $white;
+		box-shadow: 0px 4px 35px rgba(56, 54, 71, 0.15);
+		border-radius: 0px 0px 6px 6px;
+
+	}
+
+	.jcf-select-drop .jcf-hover, .jcf-list-box .jcf-selected{
+		background: #35495d;
+		color: #3cffb5;
+	}
+	.jcf-focus, .jcf-focus * {border-color: transparent !important;}
+
+}
+body > .jcf-select-drop{
+	position: fixed !important;
+}
+.jcf-select-drop{
+	top: 70px !important;
+}
+.jcf-select-drop .jcf-select-drop-content{
+	border: none !important;
+}
+.jcf-select-drop  .jcf-list{
+	display: inline-block;
+	vertical-align: top;
+	position: relative;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 400;
+	background: $white;
+	box-shadow: 0px 4px 35px rgba(56, 54, 71, 0.15);
+	border-radius: 0px 0px 6px 6px;
+	overflow: hidden;
+
+}
+.jcf-select-drop  .jcf-list .jcf-option{
+	white-space: nowrap;
+	overflow: hidden;
+	cursor: default;
+	display: block;
+	color:$graphitImaris;
+	padding: 14px 12px 10px ;
+	min-height: 25px;
+	height: 1%;
+	text-transform: uppercase;
+}
+.jcf-select-drop .jcf-hover{
+	color:$graphitImaris;
+	background: #f6f6f6;
+}
+
+
+.open-menu{
+	width: 48px;
+	height: 48px;
+	position: relative;
+	margin-right: 12px;
+	transition: .5s ease-in-out;
+	cursor: pointer;
+	display: none;
+	z-index: 100;
+	@include media("<1450px"){
+		display: block;
+		order: 1;
+	}
+	@include media("<phone"){
+		top: 1px;
+	}
+	span{
+		display: block;
+		position: absolute;
+		height: 3px;
+		width: 100%;
+		background: #3B3B46;
+		opacity: 1;
+		left: 5px;
+		transform: rotate(0deg);
+		transition: .25s ease-in-out;
+		overflow: hidden;
+
+		&:nth-child(1){
+			display: none;
+		}
+		&:nth-child(2){
+			top: 18px;
+			width: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&:nth-child(3){
+			top: 26px;
+			width: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		&:nth-child(4){
+			display: none;
+		}
+	}
+	&:hover{
+		span{
+			&:after{
+				width: 100%;
+			}
+		}
+	}
+}
+
+.menu-opened{
+	@include media("<1450px"){
+		overflow: hidden;
+		.open-menu{
+			span{
+				&:nth-child(1){
+					top: 18px;
+					width: 0%;
+					left: 50%;
+				}
+				&:nth-child(2){
+					transform:translateX(-50%) rotate(45deg);
+					width: 20px;
+					top: 24px;
+
+				}
+				&:nth-child(3){
+					transform:translateX(-50%) rotate(-45deg);
+					width: 20px;
+					top: 24px;
+
+				}
+				&:nth-child(4){
+					top: 18px;
+					width: 0%;
+					left: 50%;
+				}
+			}
+		}
+
+		.main-nav{
+			opacity: 1;
+			left: 0;
+		}
+		.fader{
+			opacity: .45;
+			visibility: visible;
+		}
+	}
+}
+
+.fader{
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: transparent;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s, visibility 0.3s;
+	z-index: 75;
+	cursor: pointer;
+}
+
+.jcf-selected{
+	font-weight: 900;
+}

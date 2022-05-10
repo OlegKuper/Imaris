@@ -1,0 +1,312 @@
+/* footer */
+.footer{
+  position: relative;
+  background: $midGray;
+  .logo{
+    position: relative;
+    width: 208px;
+    height: 72px;
+    background: url('#{$images}footer-logo.svg') no-repeat 50% 50%;
+    background-size: 100% auto;
+    overflow: hidden;
+    text-indent: -9999px;
+    margin-bottom: 64px;
+    @include media("<1300px"){
+      margin-bottom: 16px;
+      order: initial;
+    }
+    @include media("<phone"){
+      margin-bottom: 8px;
+    }
+  }
+  &__logo-block{
+    display: block;
+    margin-right: 20px;
+    @include media("<1450px"){
+      margin-right: 120px;
+    }
+    @include media("<1300px"){
+      display: flex;
+      margin-right: 0;
+    }
+    @include media("<phone"){
+      display: block;
+      margin-bottom: 24px;
+    }
+    address{
+      display: block;
+      font-style: normal;
+      font-size: 18px;
+      line-height: 22px;
+      color:$white;
+      font-weight: 400;
+      @include media("<1300px"){
+        margin-left: 16px;
+      }
+      @include media("<phone"){
+        margin-left: 0;
+      }
+    }
+  }
+  &__wrap{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 64px 0;
+    @include media("<1300px"){
+      flex-direction: column;
+      padding: 40px 0;
+    }
+    @include media("<phone"){
+      padding: 56px 0 27px;
+    }
+  }
+  &__content{
+    display: block;
+    width: 100%;
+    max-width: 1080px;
+    @include media("<1300px"){
+      max-width: 100%;
+    }
+  }
+  &__element{
+    display: flex;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom:  1px solid #9D9DA3;
+    @include media("<1200px"){
+      padding-bottom: 24px;
+    }
+    @include media("<phone"){
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  &__social-list{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    @include media("<phone"){
+      margin-right: 0;
+      margin-bottom: 32px;
+    }
+  }
+  &__social-item{
+    margin-right: 30px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @include media("<1200px"){
+      margin-right: 18px;
+    }
+  }
+  &__social-link{
+    display: block;
+    border-radius: 50%;
+    transition: .3s;
+    svg {
+      display: block;
+      circle{
+        stroke: $white;
+        transition: .3s;
+      }
+
+    }
+
+    @include media("<1450px"){
+      svg{
+        display: block;
+        width: 54px;
+        height: 54px;
+      }
+    }
+    @include media("<370px"){
+      width: 45px;
+      height: 45px;
+    }
+    &:hover{
+      background: $orange;
+      svg{
+        circle {
+          stroke: $orange;
+        }
+      }
+    }
+  }
+  &__button-block{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    @include media("<1300px"){
+      flex-direction: column;
+    }
+    @include media("<phone"){
+      margin-left: 0;
+    }
+    .text{
+      max-width: 130px;
+      font-size: 18px;
+      line-height: 22px;
+      margin-right: 24px;
+      margin-bottom: 0;
+      color:$white;
+      @include media("<1300px"){
+        margin-bottom: 8px;
+        max-width: initial;
+        margin-right: 0;
+      }
+    }
+  }
+  &__btn{
+    min-width: 240px;
+  }
+  &__nav-list{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 40px;
+    width: 100%;
+    @include media("<1200px"){
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    @include media("<phone"){
+      margin-top: 0;
+    }
+  }
+  &__nav-item{
+    margin-right: 5px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @include media("<1200px"){
+      width: 50%;
+      margin-right: 0;
+      margin-top: 16px;
+    }
+    @include media("<phone"){
+      width: 100%;
+      margin-top: 24px;
+    }
+  }
+  &__nav-link{
+    display: block;
+    font-size: 18px;
+    line-height: 140%;
+    font-weight: 900;
+    text-transform: uppercase;
+    color:$white;
+    transition: .3s;
+    &:hover{
+      color:$orange;
+    }
+  }
+  &__list{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    @include media("<1200px"){
+      margin-top: 24px;
+    }
+    @include media("<phone"){
+      flex-direction: column;
+      margin-top: 0;
+      align-items: flex-start;
+    }
+  }
+  &__item{
+    margin-right: 40px;
+    &:last-child{
+      margin-right: 0;
+    }
+    @include media("<phone"){
+      margin-right: 0;
+      margin-top: 24px;
+      width: 100%;
+    }
+  }
+  &__link{
+    display: block;
+    position: relative;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color:$white;
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: $white;
+      transition: .3s;
+    }
+    &:hover{
+      &:before{
+        width: 100%;
+      }
+    }
+    @include media("<1450px"){
+      font-size: 16px;
+    }
+    @include media("<1200px"){
+      font-size: 18px;
+    }
+  }
+  &__copy{
+    background: #EBEBED;
+    padding: 30px 0;
+    @include media("<1200px"){
+      padding: 15px 0;
+    }
+    .container{
+      display: flex;
+      align-items: center;
+      @include media("<phone"){
+        flex-direction: column;
+      }
+    }
+    a{
+      font-size: 16px;
+      line-height: 19px;
+      text-decoration: underline;
+      margin-right: 68px;
+      color:#78788F;
+      &:hover{
+        text-decoration: none;
+      }
+      @include media("<1200px"){
+        margin-right: 16px;
+        font-size: 14px;
+        line-height: 17px;
+        color: #5A5A6A;
+      }
+    }
+
+    .copy{
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color:#5A5A6A;
+      margin-left: auto;
+      @include media("<1200px"){
+        font-size: 14px;
+        line-height: 140%;
+      }
+      @include media("<phone"){
+        margin-left: 0px;
+      }
+    }
+  }
+  &__link-block{
+    @include media("<phone"){
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 13px;
+    }
+  }
+}

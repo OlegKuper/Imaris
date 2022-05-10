@@ -1,0 +1,106 @@
+.select2-hidden-accessible {
+   border: 0 !important;
+   clip: rect(0 0 0 0) !important;
+   -webkit-clip-path: inset(50%) !important;
+   clip-path: inset(50%) !important;
+   height: 1px !important;
+   overflow: hidden !important;
+   padding: 0 !important;
+   position: absolute !important;
+   width: 1px !important;
+   white-space: nowrap !important;
+}
+
+
+.select2-container .select2-selection--single {
+  height: 64px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  border: 0;
+  border-radius: 6px;
+  color: #3B3B46;
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  font-size: 16px;
+  line-height: 1.15em;
+  color: #9D9DA3;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 50%;
+  transform: translateY(-50%);
+  right: 35px;
+  width: 12px;
+  height: 12px;
+}
+
+@media (max-width: 767px) {
+
+  .select2-container .select2-selection--single{
+    height: 56px;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  top: -2px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-color: #3B3B46;
+  border-width: 0px 2px 2px 0;
+  margin: 0;
+  transform: rotate(45deg);
+  transition: .3s;
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+  border-color: #3B3B46;
+  border-width: 0px 2px 2px 0;
+  transform: rotate(225deg);
+  top: 4px;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+  background-color: transparent;
+  color: #3B3B46;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  box-shadow: 0px 40px 64px -20px rgba(59, 59, 70, 0.25);
+  max-height: 100%;
+}
+
+.select2-container--default .select2-results__option--selected {
+  background-color: transparent;
+  color: #FF5C39;
+}
+
+.select2-results__option {
+  font-size: 20px;
+  line-height: 124%;
+  padding: 15px 28px 15px;
+  transition: .3s;
+}
+.select2-results__option:hover{
+  background-color: #FF5C39 !important;
+  color:#fff !important;
+}
+.select2-results__option:last-child{
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .select2-results__option{
+    padding: 15px 28px 15px;
+    font-size: 18px;
+  }
+}
+
+.select2-dropdown {
+  border: 0;
+  border-radius: 0 0 12px 12px;
+}
+
