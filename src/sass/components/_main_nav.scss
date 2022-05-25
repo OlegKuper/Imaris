@@ -22,7 +22,7 @@
 		}
 	}
 	@include media("<phone") {
-		padding: 35px 16px;
+		padding: 35px 0;
 		top: 58px;
 	}
 	&.multi{
@@ -40,7 +40,7 @@
 			flex-direction: column;
 			align-items: flex-start;
 			margin-right: 0;
-			margin-bottom:40px;
+			margin-bottom:32px;
 			display: none;
 		}
 	}
@@ -51,6 +51,7 @@
 			border-top: 2px solid #EBEBED;
 			margin-right: 0;
 			width: 100%;
+			position: relative;
 			&:last-child{
 				border-bottom: 2px solid #EBEBED;
 			}
@@ -91,6 +92,9 @@
 			color: #3B3B46;
 			padding: 24px 0;
 		}
+		@include media("<phone") {
+			padding: 20px 0;
+		}
 		svg{
 			stroke: $graphitImaris;
 			transition: .3s;
@@ -100,13 +104,28 @@
 				color: $orange;
 			}
 		}
+		&.active{
+			color: $orange;
+			svg{
+				stroke: $orange;
+				transition: .3s;
+			}
+		}
 
 	}
+
 }
 .menu.nav__list{
 	display: none;
 	@include media("<1450px") {
 		display: block;
+	}
+	.service-link{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 90%;
+		height: 100%;
 	}
 }
 .drop{
@@ -153,6 +172,26 @@
 		transition: 0.3s;
 		transform: translate(0, -100%);
 		opacity: 0;
+		&:before{
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100vh;
+			top: 0;
+			left: -90vh;
+			background: #ffffff;
+			z-index: -1;
+		}
+		&:after{
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100vh;
+			top: 0;
+			right: -90vh;
+			background: #ffffff;
+			z-index: -1;
+		}
 	}
 	&__element{
 		width: 25%;
@@ -215,6 +254,9 @@
 			display: flex;
 			align-items: center;
 			margin-bottom: 24px;
+		}
+		@include media("<phone") {
+			margin-bottom: 20px;
 		}
 	}
 	&__item{
@@ -292,15 +334,20 @@
 		}
 	}
 	&__mobile-phone{
-		padding: 7px 41px;
 		display: flex;
 		align-items: center;
 		font-size: 20px;
 		line-height: 24px;
+		padding: 0;
+		background: transparent;
+		color:$graphitImaris;
+		font-weight: 600;
 		@include media("<370px") {
-			padding: 7px 20px;
 			width: 100%;
-			justify-content: center;
+		}
+		&:hover{
+			background: transparent;
+			color:$graphitImaris;
 		}
 	}
 }

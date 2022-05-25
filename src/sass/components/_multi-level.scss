@@ -30,6 +30,9 @@
 }
 .submenu__level{
   padding-top: 97px;
+  @include media("<phone") {
+    padding-top: 87px;
+  }
 }
 .menu__level--current {
   visibility: visible;

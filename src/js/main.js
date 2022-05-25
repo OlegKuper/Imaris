@@ -4,12 +4,18 @@ function initPage(){
 	slider('.portfolio__slider');
 	slider('.market__slider');
 	slider('.reviews__slider');
+	whomSlider();
+	acordionTabs();
 	select2();
+	selectFilter();
 	formEffect();
 	multiLevel();
 	validateFields(".contact-form");
 	validateFields(".modal-form");
-	header_fixed_class()
+	validateFields(".interested-form");
+	header_fixed_class();
+	dropServices();
+	filterMobile();
 	$(function() {
 		jcf.replaceAll();
 	});
@@ -22,6 +28,54 @@ function select2(){
 	});
 }
 
+function selectFilter(){
+	const selectF = document.querySelectorAll('.jcf-filter')
+	for (let i = 0; i < selectF.length; i++){
+		selectF[i].onfocusin = function () {
+			this.parentNode.classList.add('focus')
+		}
+		selectF[i].onfocusout = function () {
+			this.parentNode.classList.remove('focus')
+		}
+		selectF[i].onchange = function () {
+			this.parentNode.classList.remove('focus')
+			this.parentNode.classList.add('selected')
+		}
+	}
+}
+
+function filterMobile() {
+	const filter = document.querySelector('.filter__tablet-btn')
+	const filterClose = document.querySelector('.btn-back')
+	const filterBlock = document.querySelector('.filter__wrap')
+	const body = document.querySelector('body')
+	if(filter){
+		filter.addEventListener('click', function () {
+			filterBlock.classList.add('open')
+			body.classList.add('overflow')
+		})
+		filterClose.addEventListener('click', function () {
+			filterBlock.classList.remove('open')
+			body.classList.remove('overflow')
+		})
+	}
+
+
+
+}
+
+
+function dropServices() {
+	const btnClick = document.querySelectorAll('.services__open')
+	for(let i = 0; i < btnClick.length; i++ ){
+		console.log(btnClick[i])
+		btnClick[i].addEventListener('click', function() {
+			this.parentNode.classList.toggle('open')
+			// parent.classList.toggle('.open')
+		})
+	}
+
+}
 
 function header_fixed_class(){
 	var header = $('.header');
@@ -109,6 +163,99 @@ function slider(slider) {
 			},
 		]
 	});
+}
+
+
+function whomSlider(slider) {
+	$('.whom-slider').slick({
+		arrows: true,
+		dots: false,
+		infinite: false,
+		fade: true,
+		slidesToShow: 1,
+		swipeToSlide: true,
+	})
+}
+
+function acordionTabs() {
+	const cat = document.querySelectorAll('.has-drop')
+	const list = document.querySelector('.services__nav-list')
+	console.log(cat)
+	for (let i = 0; i < cat.length; i++) {
+		list.addEventListener('mouseenter', (e) => {
+			cat[i].classList.remove('active');
+			list.addEventListener('mouseleave', (e) => {
+				cat[0].classList.add('active')
+			})
+		})
+
+	}
+	//Acoordion
+	const clearAllAccordions = function(elements) {
+		elements.forEach(function(element) {
+			element.classList.remove('closed');
+			element.classList.remove('opened');
+
+			const content = element.querySelector('.js-accordion-content');
+
+			content.style.height = null;
+		});
+	};
+	const closeAllAccordions = function(elements) {
+		elements.forEach(function(element) {
+			element.classList.add('closed');
+			element.classList.remove('opened');
+		});
+	};
+
+	const toggleAccordion = function(element) {
+		element.classList.toggle('closed');
+		element.classList.toggle('opened');
+	};
+
+	const initAccordion = function(element, allElements) {
+		const head = element.querySelector('.js-accordion-head');
+		const content = element.querySelector('.js-accordion-content');
+
+		const onAccordironHeadClick = function(evt) {
+			evt.preventDefault();
+			evt.stopImmediatePropagation();
+
+			const accordionElement = evt.currentTarget.closest('.js-accordion');
+
+			if (accordionElement.classList.contains('closed')) {
+				closeAllAccordions(allElements);
+			}
+			toggleAccordion(accordionElement);
+		};
+
+		head.addEventListener('click', onAccordironHeadClick);
+		setTimeout(function() { content.style.height = content.firstElementChild.offsetHeight + 'px'; }, 0);
+		element.classList.remove('opened');
+		element.classList.add('closed');
+	};
+
+	function init() {
+		const accordionElements = document.querySelectorAll('.js-accordion');
+		if (window.innerWidth <= 768) {
+			accordionElements.forEach(function (element) {
+				initAccordion(element, accordionElements);
+			});
+		} else {
+			clearAllAccordions(accordionElements);
+		}
+	}
+
+	document.addEventListener('DOMContentLoaded', function(){
+		init();
+	});
+
+	let autoResize;
+	window.addEventListener('resize', function(event) {
+		clearTimeout(autoResize);
+		autoResize = setTimeout(init, 400);
+	});
+
 }
 
 
@@ -451,6 +598,14 @@ function validateFields(el) {
 			},
 			rules: {
 				request: {
+					required: false,
+					minlength: false
+				},
+				text: {
+					required: false,
+					minlength: false
+				},
+				company: {
 					required: false,
 					minlength: false
 				},

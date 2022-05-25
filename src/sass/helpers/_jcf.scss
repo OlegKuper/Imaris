@@ -590,3 +590,256 @@ body > .jcf-select-drop.jcf-drop-flipped {
 /* common styles */
 .jcf-disabled {background: #ddd !important;}
 .jcf-focus, .jcf-focus * {border-color: #f00 !important;}
+
+
+
+.jcf-scrollable-wrapper {
+	position: relative;
+}
+
+.jcf-scrollbar-vertical {
+	position: absolute;
+	cursor: default;
+	background: rgba(255, 255, 255, .3);
+	border-radius: 4px;
+	width: 7px;
+	bottom: 0;
+	right: 0;
+	top: 0;
+}
+
+.jcf-select-drop-content .jcf-scrollbar-vertical .jcf-scrollbar-dec:before,
+.jcf-select-drop-content .jcf-scrollbar-vertical .jcf-scrollbar-inc:before {
+	color: #00aeef;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-dec,
+.jcf-scrollbar-vertical .jcf-scrollbar-inc {
+	position: absolute;
+	height: 5px;
+	width: 10px;
+	left: 0;
+	top: -8px;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-dec:before,
+.jcf-scrollbar-vertical .jcf-scrollbar-inc:before {
+	content: "\e606";
+	display: block;
+	height: 5px;
+	width: 10px;
+	font-size: 5px;
+	color: #fff;
+	font-family: "icomoon";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	opacity: .5;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-inc {
+	top: auto !important;
+	bottom: -8px;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-inc:before {
+	content: "\e605";
+}
+
+.jcf-select-drop-content .jcf-scrollbar-vertical .jcf-scrollbar-handle {
+	background: $midGray;
+}
+
+.jcf-select-drop-content .jcf-scrollbar-vertical .jcf-scrollbar-slider {
+	background: $Athens;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-handle {
+	background: rgba(255, 255, 255, .71);
+	height: 1px;
+	width: 10px;
+	max-height: 100%;
+}
+
+.jcf-scrollbar-vertical .jcf-scrollbar-slider {
+	height: 100% !important;
+}
+
+.jcf-scrollbar-horizontal {
+	position: absolute;
+	background: #e3e3e3;
+	right: auto;
+	top: auto;
+	left: 0;
+	bottom: 0;
+	width: 1px;
+	height: 10px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-dec,
+.jcf-scrollbar-horizontal .jcf-scrollbar-inc {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	background: #fff;
+	height: 10px;
+	width: 10px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-inc {
+	left: auto;
+	right: 0;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-slider {
+	display: inline-block;
+	position: relative;
+	height: 10px;
+}
+
+.jcf-scrollbar-horizontal .jcf-scrollbar-handle {
+	position: absolute;
+	background: #888;
+	height: 10px;
+}
+
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-handle {
+	visibility: hidden;
+}
+
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-dec,
+.jcf-scrollbar.jcf-inactive .jcf-scrollbar-inc {
+	background: #e3e3e3;
+}
+
+
+
+
+
+.checkbox,
+.radio{
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #333;
+	margin-bottom: 10px;
+	overflow: hidden;
+	display: inline-block;
+	margin-right: 48px;
+}
+.checkbox label,
+.radio label{
+	display: inline-block;
+	vertical-align: top;
+}
+.checkbox span,
+.radio span{
+	display: inline-block;
+	vertical-align: top;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
+}
+.radio [type=radio] {
+	position: absolute;
+	opacity: 0;
+	visibility: hidden;
+	z-index: -1;
+}
+.radio label{
+	position: relative;
+	padding-left: 30px;
+	cursor: pointer;
+}
+.radio [type=radio]:not(:checked) ~ .control-indicator,
+.radio [type=radio]:checked ~ .control-indicator{
+	content: '';
+	position: absolute;
+	left:0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 20px;
+	border: 1px solid #9D9DA3;
+	background: #EBEBED;
+	border-radius: 50%;
+}
+.radio [type=radio]:checked ~ span{
+	color: #222;
+}
+.radio [type=radio]:checked ~ .control-indicator{
+}
+.radio [type=radio]:not(:checked) ~ .control-indicator:after,
+.radio [type=radio]:checked ~ .control-indicator:after{
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 12px;
+	height: 12px;
+	background-color: #FF5C39;
+	border-radius: 50%;
+	transition: all .2s;
+}
+.radio [type=radio]:not(:checked) ~ .control-indicator:after{
+	opacity: 0;
+	transform: scale(0);
+}
+.radio [type=radio]:checked ~ .control-indicator:after{
+	opacity: 1;
+	transform: scale(1);
+}
+.radio [type=radio]:disabled:not(:checked) ~ .control-indicator,
+.radio [type=radio]:disabled:checked ~ .control-indicator{
+	box-shadow: none;
+	border-color: #e1e2e6;
+	background-color: #f9f9f9;
+	opacity: 0.6;
+}
+.radio [type=radio]:not(:checked) ~ .control-indicator{
+	box-shadow: none;
+	border-color: #aaa;
+	background-color: #EBEBED;
+}
+.radio [type=radio]:disabled:checked ~ .control-indicator:after{
+	color: #999;
+}
+.radio [type=radio]:disabled ~ span{
+	color: #9e9e9e;
+}
+
+.form-file{
+	margin-bottom: 16px;
+	overflow: hidden;
+}
+.form-file label{
+	float: left;
+	margin: 0;
+}
+.form-file .file{
+	display: none;
+}
+.form-file .holder-input{
+	overflow: hidden;
+}
+.form-file .btn-secondary{
+	display: flex;
+	align-items: center;
+	padding: 0;
+	cursor: pointer;
+	font-size: 18px;
+	line-height: 22px;
+	font-weight: 700;
+	color:$graphitImaris;
+	svg{
+		margin-right: 16px;
+	}
+	span{
+		text-decoration: underline;
+	}
+}
