@@ -6,6 +6,10 @@ function initPage(){
 	slider('.reviews__slider');
 	whomSlider();
 	acordionTabs();
+	accordeon('.accordeon-cost');
+	accordeon('.accordeon-tools');
+	accordeon('.accordeon-work');
+	accordeon('.accordeon-faq');
 	select2();
 	selectFilter();
 	formEffect();
@@ -180,7 +184,6 @@ function whomSlider(slider) {
 function acordionTabs() {
 	const cat = document.querySelectorAll('.has-drop')
 	const list = document.querySelector('.services__nav-list')
-	console.log(cat)
 	for (let i = 0; i < cat.length; i++) {
 		list.addEventListener('mouseenter', (e) => {
 			cat[i].classList.remove('active');
@@ -237,10 +240,13 @@ function acordionTabs() {
 
 	function init() {
 		const accordionElements = document.querySelectorAll('.js-accordion');
-		if (window.innerWidth <= 768) {
+		if (window.innerWidth <= 992) {
 			accordionElements.forEach(function (element) {
 				initAccordion(element, accordionElements);
 			});
+			const firstHead = document.querySelector('.js-accordion');
+			firstHead.classList.add('opened');
+			firstHead.classList.remove('closed');
 		} else {
 			clearAllAccordions(accordionElements);
 		}
@@ -255,7 +261,14 @@ function acordionTabs() {
 		clearTimeout(autoResize);
 		autoResize = setTimeout(init, 400);
 	});
+}
 
+function accordeon(acco){
+	$(`${acco} dd`).hide().prev().click(function() {
+		$(this).parents(acco).find("dd").not(this).slideUp().prev().parent().removeClass("active");
+		$(this).next().not(":visible").slideDown().prev().parent().addClass("active");
+	});
+	$(`${acco} dl.current dd`).show();
 }
 
 

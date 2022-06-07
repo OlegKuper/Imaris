@@ -418,8 +418,8 @@
   @include media("<phone"){
     padding:55px 0 55px ;
   }
-  &__wrap{
-
+  &_promotion{
+    background: #fff;
   }
   &__bg{
     position: absolute;
@@ -505,11 +505,12 @@
     overflow: hidden;
     box-shadow: 0px 4px 35px rgba(56, 54, 71, 0.15);
     transition: .3s !important;
+    background: #fff;
     @include media("<1450px") {
       margin-left: 20px;
     }
     &:hover{
-      @include media(">1450px") {
+      @include media(">tablet") {
         box-shadow: 0px 4px 35px rgba(56, 54, 71, 0.35);
       }
     }
@@ -870,6 +871,10 @@
     line-height: 140%;
     font-weight: 900;
     margin-bottom: 24px;
+    transition: .3s;
+    &:hover{
+      color:$orange;
+    }
     @include media("<1450px") {
       font-size: 16px;
     }
@@ -1586,6 +1591,7 @@
     border: 0;
     padding-top: 8px;
     margin-bottom: 27px;
+    flex-wrap: wrap;
 
   }
 }
@@ -1596,6 +1602,7 @@
   color:$lightGray;
   @include media ("<phone"){
     font-size: 12px;
+    padding-right: 8px;
   }
 }
 .breadcrumb li a{
@@ -1605,6 +1612,9 @@
   content: "/";
   padding: 0 8px;
   color:$graphitImaris;
+  @include media("<phone") {
+    padding:0 8px 0 0;
+  }
 }
 
 .breadcrumb li:first-child::before {
@@ -1943,7 +1953,7 @@
     display: block;
     font-size: 24px;
     line-height: 120%;
-    font-weight: 900;
+    font-weight: 400;
     margin-bottom: 8px;
     font-style: normal;
     @include media ("<phone"){
@@ -1978,13 +1988,15 @@
     padding: 21px 20px;
     &:hover{
       border-color: $orange;
+      color:$orange;
+      background-color: transparent;
     }
   }
 }
 
 .filter{
   display: block;
-  margin-bottom: 80px;
+  margin-bottom: 64px;
   @include media ("<tablet"){
     margin-bottom: 24px;
   }
@@ -2132,9 +2144,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 68px;
-    min-width: 68px;
-    height: 68px;
+    width: 64px;
+    min-width: 64px;
+    height: 64px;
     border-radius: 50%;
     background: transparent;
     border: 1px solid $orange;
@@ -2185,7 +2197,7 @@
   .jcf-select{
     border: 1px solid #9D9DA3;
     border-radius: 6px;
-    height: 68px;
+    height: 64px;
     display: flex;
     align-items: center;
     padding: 10px 33px 10px 16px;
@@ -2210,6 +2222,7 @@
     line-height: 20px;
     font-weight: 400;
     margin: 0;
+    padding-right: 10px;
   }
   .jcf-drop-active .jcf-select-opener{
     transform:translateY(-50%) rotate(180deg);
@@ -2319,11 +2332,17 @@
     height: 64px;
     text-transform: uppercase;
     border: 2px solid $graphitImaris;
+    font-family: $font-family-base;
     border-radius: 6px;
     font-size: 18px;
     line-height: 16px;
     font-weight: 900;
     background: $white;
+    color:$graphitImaris;
+    &:hover{
+      border-color: $orange;
+      color:$orange;
+    }
   }
 
 }
@@ -2342,6 +2361,11 @@
         display: block;
         fill: $lightGray;
         transition: .3s;
+      }
+      &_disablet{
+        svg{
+          opacity: .5;
+        }
       }
       &.next{
         margin-left: 55px;
@@ -3011,13 +3035,14 @@
     padding: 16px 24px;
     border: 1px solid #3B3B46;
     border-radius: 50px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 140%;
     font-weight: 600;
     text-transform: uppercase;
     white-space: nowrap;
+    transition: .3s;
     @include media ("<phone"){
-      font-size: 16px;
+      font-size: 14px;
       padding: 12px 20px;
     }
     &.active,
@@ -3184,6 +3209,17 @@
     padding-bottom: 37.6%;
     height: 0;
     flex: 0 1 382px;
+    cursor: pointer;
+    &:before{
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      background: url("#{$images}zoom.svg") no-repeat;
+      z-index: 2;
+    }
     @include media ("<phone"){
       flex: 0 0 100%;
       width: 50%;
@@ -3218,7 +3254,6 @@
     line-height: 140%;
     font-weight: 400;
     margin-bottom: 16px;
-    max-width: 890px;
     @include media ("<phone"){
       font-size: 16px;
     }
@@ -3292,12 +3327,12 @@
 .promotion{
   &__wrap{
     display: flex;
-    margin-bottom: 80px;
+    margin-bottom: 66px;
     @include media ("<tablet"){
       flex-direction: column;
     }
-    @include media ("<phone"){
-      margin-bottom: 56px;
+    @include media ("<tablet"){
+      margin-bottom: 40px;
     }
   }
   &__text-block{
@@ -3332,6 +3367,26 @@
     @include media ("<tablet"){
       flex: none;
     }
+    &_develop{
+      .progress__list{
+        flex-direction: column;
+        align-items: center;
+        @include media ("<tablet"){
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+      }
+      .progress__item{
+        width: 225px !important;
+        @include media ("<phone"){
+          width: 150px !important;
+        }
+      }
+      .progress__item .box{
+        position: relative;
+      }
+
+    }
   }
   &__button-block{
     display: flex;
@@ -3355,12 +3410,32 @@
     background: transparent;
     color:$graphitImaris;
     box-shadow: inset 0px 0px 0px 2px rgba(59,59,70,1);
+    &:hover{
+      color:$orange;
+      box-shadow:inset 0px 0px 0px 2px rgba(255,92,57,1);;
+    }
     @include media ("<phone"){
       margin-left: 16px;
     }
   }
   .progress{
-
+    &__year{
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 100%;
+      @include media ("<tablet"){
+        font-size: 24px;
+      }
+    }
+    &__text{
+      display: block;
+      font-size: 18px;
+      line-height: 90%;
+      @include media ("<tablet"){
+        font-size: 15px;
+      }
+    }
     &__list{
       display: flex;
       flex-wrap: wrap;
@@ -3378,6 +3453,7 @@
       @include media ("<tablet"){
         width: 150px;
         padding: 0 8px;
+        margin-bottom: 16px;
       }
       @include media ("<phone"){
         width: 33.333%;
@@ -3423,11 +3499,21 @@
     line-height: 140%;
     font-weight: 900;
     margin-bottom: 32px;
+    &_white{
+      color:#fff;
+    }
+    @include media ("<1450px"){
+      font-size: 40px;
+      margin-bottom: 24px;
+    }
     @include media ("<tablet"){
       font-size: 32px;
-      margin-bottom: 16px;
     }
-  }
+    @include media ("<phone"){
+      font-size: 24px;
+    }
+
+    }
   &__whom-slider{
     flex: 0 1 667px;
     overflow: hidden;
@@ -3469,6 +3555,7 @@
     img{
       display: block;
       width: 100%;
+      height: auto;
       @include media ("<tablet"){
         max-width: 100%;
         max-height: 100%;
@@ -3487,6 +3574,9 @@
     box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
     padding: 40px;
+    @include media ("<tablet"){
+      padding: 24px 16px;
+    }
   }
 
   .services{
@@ -3495,6 +3585,10 @@
       padding-bottom: 16px;
       border-bottom: 2px solid #EBEBED;
       margin-bottom: 16px;
+      @include media ("<tablet"){
+        padding-bottom: 0;
+        margin-bottom: 8px;
+      }
     }
     &__category-paragraph{
       display: block;
@@ -3502,6 +3596,10 @@
       line-height: 140%;
       font-weight: 400;
       margin-bottom: 16px;
+      @include media ("<tablet"){
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
     }
     &__category-title{
       display: block;
@@ -3509,12 +3607,19 @@
       line-height: 120%;
       font-weight: 900;
       margin-bottom: 8px;
+      @include media ("<tablet"){
+        font-size: 18px;
+      }
     }
     &__category-text{
       display: block;
       font-size: 18px;
       line-height: 140%;
       font-weight: 400;
+      margin-bottom: 8px;
+      @include media ("<tablet"){
+        font-size: 14px;
+      }
     }
   }
   .services__nav-list {
@@ -3523,10 +3628,12 @@
     background: #fff;
     width: 50%;
     border-radius: 10px;
+    min-height: 450px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .services__nav-list {
       width: auto;
+      min-height: 450px;
     }
   }
   .services__nav-item {
@@ -3543,14 +3650,12 @@
     margin-bottom: 12px;
   }
   @media screen and (max-width: 991px) {
-    .services__nav-item {
-      margin-bottom: 0;
-    }
+
     .services__nav-item:last-child {
       margin-bottom: 0;
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 991px) {
     .services__nav-item.has-drop:hover .services__category-content {
       opacity: 1;
       visibility: visible;
@@ -3562,7 +3667,7 @@
 
     }
   }
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 991px) {
     .services__nav-item:hover .services__category {
       color: #fff;
       background: #3B3B46;
@@ -3587,6 +3692,9 @@
   .services__nav-item.opened .services__category {
     color: #fff;
     background: #3B3B46;
+    &:after{
+      transform: rotate(-180deg);
+    }
   }
   .services__nav-item.opened .services__category .svg-icon {
     color: #fff;
@@ -3615,26 +3723,31 @@
     transition: all 0.3s;
     background: #EBEBED;
     border-radius: 6px;
+    pointer-events: none;
+    &:after{
+      content: '';
+      display: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 3px;
+      background: #fff url("#{$images}arrow-acordion.svg") no-repeat center;
+      transition: .25s;
+    }
   }
   @media screen and (max-width: 991px) {
     .services__category {
-      font-size: 14px;
+      font-size: 16px;
+      &:after{
+        display: inline-block;
+      }
     }
   }
-  .services__category .svg-icon {
-    display: block;
-    color: #FF5C39;
-    margin-right: 9px;
-    width: 48px;
-    height: 48px;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
+  .services__category svg {
+
   }
   @media screen and (max-width: 991px) {
-    .services__category .svg-icon {
-      width: 40px;
-      height: 40px;
-      margin-right: 8px;
+    .services__category svg {
+      display: none;
     }
   }
 
@@ -3659,6 +3772,7 @@
     top: 0;
     transform: translate(100%, 0);
     height: 100%;
+    min-height: 461px;
     background: #fff;
     z-index: 0;
     opacity: 0;
@@ -3667,7 +3781,7 @@
     transition: 0.4s;
     border-radius: 10px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .services__category-content {
       -webkit-transform: translate(0, 0);
       transform: translate(0, 0);
@@ -3681,6 +3795,7 @@
       visibility: visible;
       overflow: hidden;
       border-radius: 0;
+      min-height: auto;
     }
   }
   .closed .services__category-content {
@@ -3700,10 +3815,10 @@
     justify-content: space-between;
     padding-left: 56px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 991px) {
     .services__category-wrap {
       height: auto;
-      padding: 20px;
+      padding: 24px 16px 8px;
       border-radius: 0 0 10px 10px;
       /* border: 1px solid #D8D8DA; */
     }
@@ -3725,28 +3840,30 @@
     transition: color 0.3s linear, text-shadow 0.3s linear;
     padding-left: 30px;
     position: relative;
+    margin-bottom: 8px;
   }
   @media screen and (max-width: 991px) {
     .service__category-item {
       font-size: 14px;
       line-height: 28px;
+      margin-bottom: 4px;
     }
   }
   .service__category-item:before {
     content: "";
     position: absolute;
-    top: 10px;
+    top: 6px;
     left: 8px;
-    width: 6px;
-    height: 6px;
+    width: 10px;
+    height: 10px;
     background: #3B3B46;
     border-radius: 50%;
   }
   @media screen and (max-width: 991px) {
     .service__category-item:before {
-      top: 12px;
-      width: 3px;
-      height: 3px;
+      top: 11px;
+      width: 6px;
+      height: 6px;
     }
   }
   .services__btn-details {
@@ -3762,7 +3879,11 @@
   @media screen and (max-width: 991px) {
     .services__btn-details {
       font-size: 16px;
-      padding-right: 32px;
+      padding: 18px 20px;
+      margin: 0 auto;
+      max-width: 200px;
+      width: 100%;
+      min-width: initial;
     }
   }
   .services__btn-details:hover .services__btn-icon {
@@ -3785,19 +3906,13 @@
       width: 24px;
     }
     .services__nav-item.has-drop .services__category {
-      pointer-events: none;
+      pointer-events: auto;
     }
     .services__category:before{
       top: -4px;
       bottom: -4px;
       left: -4px;
       right: -4px;
-    }
-  }
-  @media screen and (max-width: 768px) {
-
-    .services__nav-item.has-drop .services__category {
-      pointer-events: auto;
     }
   }
   .services__btn-arrow {
@@ -3808,5 +3923,862 @@
     top: 0;
     right: 0;
   }
+}
+.better{
+  &__wrap{
+    padding: 80px 0;
+    border-top: 2px solid #EBEBED;
+    border-bottom: 2px solid #EBEBED;
+    display: flex;
+    @include media ("<tablet"){
+      flex-direction: column;
+    }
+    @include media ("<phone"){
+      padding: 56px 0;
+    }
+  }
+  .promotion__paragraph{
+    margin-bottom: 0;
+  }
+  &__text-block{
+    margin-right: 32px;
+    width: 50%;
+    @include media ("<tablet"){
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+  }
+  &__content{
+    width: 50%;
+    @include media ("<tablet"){
+      width: 100%;
+    }
+  }
+  &__item{
+    display: block;
+    margin-bottom: 30px;
+  }
+  &__title{
+    display: block;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 140%;
+    margin-bottom: 8px;
+  }
+  &__text{
+    display: block;
+    font-size: 18px;
+    line-height: 140%;
+  }
+}
+.reason-bg{
+  background: #fff;
+}
+.promotion__grey{
+  background: #EBEBED;
+  padding-bottom: 80px;
+  @include media ("<phone"){
+    padding-bottom: 56px;
+  }
+}
 
+.cost{
+  &__wrap{
+    padding: 80px 0;
+    @include media ("<phone"){
+      padding: 56px 0;
+    }
+  }
+  &__block{
+    display: flex;
+    margin: 0 -15px;
+    @include media ("<tablet"){
+      flex-direction: column;
+      margin: 0;
+    }
+  }
+  &__item{
+    width: 50%;
+    padding: 0 15px;
+    @include media ("<tablet"){
+      width: 100%;
+      padding: 0;
+      margin-bottom: 24px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+  }
+  &__content{
+    background: $Athens;
+    padding: 40px 33px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    border-radius: 6px;
+    @include media ("<phone"){
+      padding: 32px 16px;
+    }
+    .btn{
+      margin-top: auto;
+      width: auto;
+
+    }
+  }
+  &__title{
+    display: block;
+    font-size: 48px;
+    line-height: 140%;
+    font-weight: 700;
+    margin-bottom: 16px;
+    @include media ("<1500px"){
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+    @include media ("<phone"){
+      font-size: 24px;
+    }
+  }
+  &__text{
+    display: block;
+    font-size: 18px;
+    line-height: 140%;
+    margin-bottom: 24px;
+    @include media ("<phone"){
+      margin-bottom: 16px;
+      font-size: 16px;
+    }
+  }
+
+  .accordeon-cost{
+    margin-bottom: 80px;
+    @include media ("<phone"){
+      margin-bottom: 56px;
+    }
+    &__item{
+      background: #FFF;
+      box-shadow: 0px 4px 40px rgba(59, 59, 70, 0.2);
+      border-radius: 6px;
+      padding: 40px;
+      margin-bottom: 30px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      @include media ("<tablet"){
+        padding: 24px 16px;
+        margin-bottom: 24px;
+      }
+      &.active{
+        .accordeon-cost__head svg{
+          transform: rotate(-180deg);
+        }
+        .cost__btn{
+          background: $orange;
+          color:$white;
+          box-shadow: none;
+        }
+        .note{
+          font-size: 14px;
+          margin-top: 12px;
+          @include media ("<tablet"){
+            margin-top: 22px;
+          }
+        }
+      }
+    }
+    &__head{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      cursor: pointer;
+      svg{
+        transition: .3s;
+      }
+    }
+    &__title{
+      display: block;
+      font-size: 32px;
+      line-height: 140%;
+      font-weight: 900;
+      @include media ("<tablet"){
+        font-size: 24px;
+      }
+    }
+    &__content{
+      padding-bottom: 24px;
+      &-wrap{
+        display: flex;
+        margin: 0 -15px;
+        @include media ("<tablet"){
+          margin: 0;
+          flex-direction: column;
+        }
+      }
+      &-col{
+        width: 50%;
+        padding: 0 15px;
+        @include media ("<tablet"){
+          width: 100%;
+          padding: 0;
+        }
+      }
+      &-paragraph{
+        display: block;
+        font-size: 18px;
+        line-height: 140%;
+        font-weight: 400;
+        margin-bottom: 16px;
+        @include media ("<tablet"){
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+      }
+      &-list{
+        display: block;
+      }
+      &-item{
+        display: block;
+        padding-left: 25px;
+        position: relative;
+        font-size: 18px;
+        line-height: 140%;
+        margin-bottom: 16px;
+        @include media ("<tablet"){
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+        &:before{
+          content: '';
+          position: absolute;
+          top: 6px;
+          left: 8px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: $graphitImaris;
+          @include media ("<phone"){
+            top: 7px;
+            width: 6px;
+            height: 6px;
+          }
+        }
+      }
+    }
+    &__footer{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 2px solid #EBEBED;
+      @include media ("<tablet"){
+        flex-direction: column;
+      }
+    }
+    .price-block{
+      @include media ("<tablet"){
+        margin-bottom: 16px;
+      }
+    }
+    .mounts{
+      display: block;
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 400;
+      @include media ("<tablet"){
+        font-size: 14px;
+      }
+    }
+    .note{
+      display: block;
+      font-size: 0px;
+      line-height: 140%;
+      font-weight: 400;
+      color:$lightGray;
+      transition: .1s;
+    }
+  }
+  &__btn{
+    background: transparent;
+    box-shadow: inset 0px 0px 0px 2px #3b3b46;
+    color:$graphitImaris;
+    &:hover{
+      color:$orange;
+      box-shadow:inset 0px 0px 0px 2px rgba(255,92,57,1);
+      background: transparent;
+    }
+    @include media ("<phone"){
+      padding: 20px 10px;
+      max-width: 400px;
+      width: 100%;
+    }
+  }
+}
+
+
+.tools{
+  background: $graphitImaris;
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+  @include media ("<phone"){
+    padding: 56px 0;
+  }
+  .promotion__descr{
+    max-width:1000px;
+  }
+  &__bg-top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 430px;
+    height: 470px;
+    opacity: .7;
+  }
+  &__bg-bottom{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 410px;
+    height: 430px;
+    opacity: .7;
+  }
+  .accordeon-tools{
+    &__title{
+      display: block;
+      font-size: 24px;
+      line-height: 40px;
+      @include media ("<phone"){
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+    &__paragraph{
+      display: block;
+      font-size: 16px;
+      line-height: 140%;
+      color:$white;
+      margin-bottom: 10px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    &__item{
+      display: block;
+      padding: 0 0 40px 72px;
+      position: relative;
+      @include media ("<tablet"){
+        padding: 0 0 32px 72px;
+      }
+      @include media ("<phone"){
+        padding: 0 0 24px 32px;
+      }
+      &:last-child{
+        padding-bottom: 0;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: $lightGray;
+        z-index: 1;
+        transition: .3s;
+        @include media ("<phone"){
+          width: 24px;
+          height: 24px;
+        }
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 15px;
+        width: 8px;
+        height: 100%;
+        background: $lightGray;
+        z-index: 1;
+        transition: .3s;
+        @include media ("<phone"){
+          left: 10px;
+          width: 4px;
+        }
+      }
+      &.active{
+        .accordeon-tools__head svg{
+          transform: rotate(0);
+        }
+        &:before,
+        &:after{
+          background: $orange;
+        }
+      }
+    }
+    &__head{
+      color:$white;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      svg{
+        margin-left: 32px;
+        transform: rotate(-180deg);
+        transition: .3s;
+      }
+    }
+    &__content{
+      padding-top: 24px;
+      @include media ("<phone"){
+        padding-top: 16px;
+      }
+    }
+  }
+}
+
+.work{
+  &_pro{
+    background: #fff;
+    padding: 80px 0 0;
+    @include media ("<tablet"){
+      padding: 56px 0;
+    }
+  }
+  &__accordeon-holder{
+    display: flex;
+  }
+  .accordeon-work{
+    max-width: 796px;
+    width: 100%;
+    position: relative;
+    @include media ("<1500px"){
+      max-width: initial;
+      width: 50%;
+    }
+    @include media ("<tablet"){
+      width: 100%;
+    }
+    &__item{
+      display: block;
+      margin-bottom: 16px;
+      @include media ("<phone"){
+        margin-bottom: 8px;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &.active{
+        .accordeon-work__number{
+          background: $orange;
+        }
+        .accordeon-work__head{
+          svg{
+            transform: rotate(0);
+          }
+        }
+        .accordeon-work__picture-block{
+          display: flex;
+        }
+      }
+    }
+    &__picture-block{
+      height: 100%;
+      width: 50%;
+      text-align: center;
+      @include media ("<tablet"){
+        display: none;
+      }
+      img{
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: 55px;
+        margin-top: -18px;
+      }
+    }
+    &__head{
+      display: flex;
+      align-items: center;
+      svg{
+        margin-left: auto;
+        transform: rotate(-180deg);
+        transition: .3s;
+      }
+    }
+    &__title{
+      display: block;
+      font-size: 18px;
+      line-height: 140%;
+      font-weight: 900;
+      margin-right: 20px;
+    }
+    &__number{
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color:$white;
+      background: $graphitImaris;
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      line-height: 140%;
+      font-weight: 700;
+    }
+    &__content{
+      padding-top: 8px;
+      padding-left: 62px;
+      @include media ("<tablet"){
+        padding-left: 48px;
+      }
+    }
+    &__list{
+      display: block;
+    }
+    &__list-item{
+      padding-left: 32px;
+      position: relative;
+      margin-bottom: 16px;
+      font-size: 18px;
+      @include media ("<phone"){
+        font-size: 16px;
+        margin-bottom: 8px;
+      }
+      &:last-child{
+        margin-bottom: 0;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 5px;
+        left: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $graphitImaris;
+        @include media ("<phone"){
+          width: 6px;
+          height: 6px;
+          top: 8px;
+        }
+      }
+    }
+  }
+}
+.faq{
+  &__wrap{
+    border-top: 2px solid #EBEBED;
+    padding: 80px 0;
+    @include media ("<phone"){
+      padding: 56px 0;
+    }
+  }
+  .accordeon-faq{
+    &__item{
+      background: #FFF;
+      box-shadow: 0px 4px 35px rgba(59, 59, 70, 0.15);
+      border-radius: 6px;
+      padding: 32px 32px 24px;
+      margin-bottom: 25px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+      @include media ("<tablet"){
+        padding: 24px 16px;
+        margin-bottom: 24px;
+      }
+      &.active{
+        .accordeon-cost__head svg{
+          transform: rotate(-180deg);
+        }
+        .cost__btn{
+          background: $cinnabar;
+          color:$white;
+          box-shadow: none;
+        }
+      }
+    }
+    &__head{
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      cursor: pointer;
+      svg{
+        transition: .3s;
+        display: block;
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+      }
+    }
+    &__title{
+      display: block;
+      font-size: 24px;
+      line-height: 140%;
+      font-weight: 900;
+      @include media ("<phone"){
+        font-size: 16px;
+      }
+    }
+    &__text{
+      display: block;
+      font-size: 18px;
+      line-height: 140%;
+      @include media ("<phone"){
+        font-size: 16px;
+      }
+    }
+    &__content{
+      padding-top: 24px;
+      margin-top: 24px;
+      border-top: 2px solid #EBEBED;
+      @include media ("<phone"){
+        padding-top: 16px;
+        margin-top: 26px;
+      }
+      &-wrap{
+        display: flex;
+        margin: 0 -15px;
+        @include media ("<tablet"){
+          margin: 0;
+          flex-direction: column;
+        }
+      }
+      &-col{
+        width: 50%;
+        padding: 0 15px;
+        @include media ("<tablet"){
+          width: 100%;
+          padding: 0;
+        }
+      }
+      &-paragraph{
+        display: block;
+        font-size: 18px;
+        line-height: 140%;
+        font-weight: 400;
+        margin-bottom: 16px;
+        @include media ("<tablet"){
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+      }
+      &-list{
+        display: block;
+      }
+      &-item{
+        display: block;
+        padding-left: 25px;
+        position: relative;
+        font-size: 18px;
+        line-height: 140%;
+        margin-bottom: 16px;
+        @include media ("<tablet"){
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+        &:before{
+          content: '';
+          position: absolute;
+          top: 10px;
+          left: 8px;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: $graphitImaris;
+        }
+      }
+    }
+  }
+}
+
+.coverage{
+  position: relative;
+  &__content{
+    @include media ("<phone") {
+      display: flex;
+    }
+  }
+}
+.coverage__img{
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+.coverage__list-zona{
+  display: flex;
+  max-width: 863px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  @include media ("<phone") {
+    order: 2;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-right: -25px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+}
+.coverage__item-zona{
+  margin-bottom: 5px;
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  @include media ("<phone") {
+    margin-right: 25px;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+}
+.coverage__item-zona:last-child{
+  margin-right: 0;
+}
+.coverage__item-zona span{
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+.coverage__content-flex-wrap{
+  display: flex;
+  @include media ("<phone") {
+    flex-direction: column;
+    margin-left: 30px;
+  }
+}
+.coverage__content-lists{
+  width: 50%;
+  margin-right: 80px;
+  &:last-child{
+    margin-right: 0;
+  }
+  @include media ("<phone") {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+.coverage__content-title{
+  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.coverage__content-list{
+  display: block;
+  list-style-type: decimal !important;
+  counter-reset:number ;
+  column-count: 2;
+  @include media ("<phone") {
+    column-count: 1 ;
+  }
+}
+.coverage__content-item{
+  display: block;
+  position: relative;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 8px;
+  counter-increment: number
+}
+.coverage__content-item:before{
+  content:counter(number)'.';
+  display: inline-block;
+  margin-right: 8px;
+}
+.coverage__wrap {
+  padding: 80px 0;
+  @include media ("<phone"){
+    display: flex;
+    flex-direction: column;
+    padding: 56px 0;
+  }
+}
+
+.policy{
+  padding-bottom: 80px;
+  &__wrap{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 35px rgba(56, 54, 71, 0.15);
+    border-radius: 6px;
+    padding: 24px 32px 38px 32px;
+    @include media ("<phone"){
+      padding: 24px 16px;
+    }
+  }
+  &__title{
+    display: block;
+    font-size: 24px;
+    line-height: 120%;
+    font-weight: 900;
+  }
+}
+#policy{
+  margin-top: 24px;
+  border-top: 1px solid #EBEBED;
+  font-size: 16px;
+  line-height: 140%;
+  strong{
+    display: block;
+    font-weight: 600;
+    padding-top: 24px;
+    margin-bottom: 16px;
+  }
+  p{
+    font-weight: 400;
+    margin-bottom: 8px;
+    @include media ("<phone"){
+      font-size: 14px;
+    }
+  }
+  ul{
+    display: block;
+    li{
+      display: block;
+      position: relative;
+      padding-left: 25px;
+      font-size: 16px;
+      line-height: 140%;
+      font-weight: 400;
+      margin-bottom: 8px;
+      @include media ("<phone"){
+        font-size: 14px;
+        padding-left: 20px;
+      }
+      &:before{
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        border-radius: 50%;
+        background: #3B3B46;
+        width: 5px;
+        height: 5px;
+        @include media ("<phone"){
+          left: 6px;
+        }
+      }
+    }
+  }
+  a{
+    display: inline-block;
+    color:$orange;
+    text-decoration: underline;
+  }
 }
